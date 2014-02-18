@@ -17,6 +17,10 @@ class My_Controller extends CI_Controller
     {
         parent::__construct();
         $this->load->library('ion_auth');
+        
+        if (ENVIRONMENT == 'development') {
+            $this->output->enable_profiler(TRUE);
+        }
     }
 
     /**

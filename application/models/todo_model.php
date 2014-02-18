@@ -23,4 +23,12 @@ class todo_model extends CI_Model
         return $query->result();
     }
     
+    /**
+     * Insert a new todo item into the database
+     * @param Array $data Contains all the fields to be filled in
+     */
+    public function insert($data)
+    {
+        $this->db->insert('items', $data);
+    }
 }
