@@ -19,8 +19,13 @@ class todo extends My_Controller
      */
     public function index()
     {
+        //Get the form definition
+        $data = $this->defineForm();
+
+        //Load existing items
         $this->load->model('todo_model');
         $data['list'] = $this->todo_model->getAll();
+
         $this->load->view('todo/todo_list', $data);
     }
     
@@ -29,7 +34,7 @@ class todo extends My_Controller
      */
     public function add()
     {
-        
+
     }
     
     /**
@@ -46,5 +51,45 @@ class todo extends My_Controller
     public function delete()
     {
         
+    }
+    
+    /**
+     * Defines the form and validation
+     */
+    protected function defineForm()
+    {
+        //Create a small form to add new items
+        $this->load->library('form_validation');
+        
+        $this->form_validation->set_rules('item', 'Description', 'required|max_length[255]');
+        $this->form_validation->set_rules('date_due', 'Due Date', 'required');
+        $this->form_validation->set_rules('completed', 'Completed', 'required');
+
+        $data['item'] = array(
+            'name' => 'item',
+            'id' => 'item',
+            'type' => 'text',
+            'value' => $this->form_validation->set_value('item'),
+            'placeholder' => 'Todo Item Description',
+            'class' => 'input-small'
+        );
+
+        $data['date_due'] = array(
+            'name' => 'date_due',
+            'id' => 'date_due',
+            'type' => 'text',
+            'value' => $this->form_validation->set_value('date_due'),
+            'placeholder' => 'Due Date',
+            'class' => 'datepicker input-small'
+        );
+
+        $data['completed'] = array(
+            'name' => 'completed',
+            'id' => 'completed',
+            'type' => 'checkbox',
+            'value' => $this->form_validation->set_value('completed')
+        );
+        
+        return $data;
     }
 }
