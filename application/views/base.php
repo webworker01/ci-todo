@@ -10,17 +10,17 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap.min.css">
         <style>
             body {
                 padding-top: 50px;
                 padding-bottom: 20px;
             }
         </style>
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="<?= base_url(); ?>css/main.css">
 
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="<?= base_url(); ?>js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -55,15 +55,15 @@
       <hr>
 
       <footer>
-        <p>&copy; webworker@live.com <?= date('Y'); ?></p>
+        <p>&copy; <?= safe_mailto('webworker@live.com'); ?>&mdash;<?= date('Y'); ?></p>
       </footer>
     </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="<?= base_url(); ?>js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
-        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="<?= base_url(); ?>js/vendor/bootstrap.min.js"></script>
 
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="<?= base_url(); ?>js/plugins.js"></script>
+        <script src="<?= base_url(); ?>js/main.js"></script>
 
         <!--
         <script>
