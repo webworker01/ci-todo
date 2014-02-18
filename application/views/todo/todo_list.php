@@ -17,12 +17,14 @@
 <table class="todolist">
     <tr>
         <th>Todo Item</th>
+        <th>Date Created</th>
         <th>Due Date</td>
         <?php if ($auth['logged_in']) : ?><th>Completed</td><?php endif; ?>
     </tr>
 <?php foreach ($list as $row => $data) : ?>
     <tr<?php if ($data->completed): ?> class="completed"<?php endif; ?>>
         <td><?= $data->item; ?></td>
+        <td><?= $data->date_added; ?></td>
         <td><?= $data->date_due; ?></td>
         <?php if ($auth['logged_in']) : ?><td><input type="checkbox" <?php if ($data->completed): ?>checked="checked"<?php endif; ?> id="todo-<?= $data->id; ?>" class="todo-checkbox"></td><?php endif; ?>
     </tr>
