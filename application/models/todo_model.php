@@ -26,9 +26,20 @@ class todo_model extends CI_Model
     /**
      * Insert a new todo item into the database
      * @param Array $data Contains all the fields to be filled in
+     * @return 
      */
     public function insert($data)
     {
-        $this->db->insert('items', $data);
+        return $this->db->insert('items', $data);
+    }
+    
+    /**
+     * Update a record in the database
+     * @param int $id ID of the record to be updated
+     * @param Array $data fields to be updated
+     */
+    public function update($id, $data)
+    {
+        $this->db->update('items', $data, array('id' => $id));
     }
 }

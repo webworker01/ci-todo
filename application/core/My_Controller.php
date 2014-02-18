@@ -16,9 +16,9 @@ class My_Controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->library('ion_auth');
+        //$this->load->library('ion_auth');
         
-        if (ENVIRONMENT == 'development') {
+        if (ENVIRONMENT == 'development' && !$this->input->is_ajax_request()) {
             $this->output->enable_profiler(TRUE);
         }
     }
@@ -30,12 +30,14 @@ class My_Controller extends CI_Controller
      */
     public function _output($content)
     {
-        $data['content'] = $content;
-        $data['auth'] = array(
-            'logged_in' => $this->ion_auth->logged_in(),
-            'is_admin' => $this->ion_auth->is_admin()
-        );
-        
-        echo $this->load->view('base', $data, true);
+        if (!$this->input->is_ajax_request()) {
+            $data['content'] = $content;
+            $data['auth'] = array(
+                'logged_in' => $this->ion_auth->logged_in(),
+                'is_admin' => $this->ion_auth->is_admin()
+            );
+
+            echo $this->load->view('base', $data, true);
+        }
     }
 }
