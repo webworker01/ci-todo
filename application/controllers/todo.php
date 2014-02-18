@@ -21,7 +21,7 @@ class todo extends My_Controller
     {
         $this->load->model('todo_model');
         $data['list'] = $this->todo_model->getAll();
-        $this->load->view('todo_list', $data);
+        $this->load->view('todo/todo_list', $data);
     }
     
     /**
