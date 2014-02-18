@@ -12,7 +12,7 @@
  * @author webworker@live.com
  * 
  */
-class todo extends My_Controller
+class todo extends MY_Controller
 {
     private $viewData = Array(); //holds data to send to the view
     
