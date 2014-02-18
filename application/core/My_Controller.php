@@ -13,7 +13,12 @@
  */
 class My_Controller extends CI_Controller 
 {
-    
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('ion_auth');
+    }
+
     /**
      * Override default view behavior to enable a base template all other 
      * templates will extend from
@@ -22,6 +27,11 @@ class My_Controller extends CI_Controller
     public function _output($content)
     {
         $data['content'] = $content;
+        $data['auth'] = array(
+            'logged_in' => $this->ion_auth->logged_in(),
+            'is_admin' => $this->ion_auth->is_admin()
+        );
+        
         echo $this->load->view('base', $data, true);
     }
 }

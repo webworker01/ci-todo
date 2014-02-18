@@ -34,18 +34,27 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Todo List</a>
+          <a class="navbar-brand" href="<?= base_url(); ?>">Todo List</a>
         </div>
         <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
+            <ul class="nav navbar-nav">
+                <li><a href="<?= base_url(); ?>">Home</a></li>
+                <?php if ($auth['is_admin']): ?><li><a href="<?= site_url('auth')?>">Auth</a></li><?php endif; ?>
+            </ul>
+            
+            <?php if (!$auth['logged_in']): ?>
+                <form method="post" action="<?= site_url('auth/login'); ?>" class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control" name="identity">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </form>
+            <?php else: ?>
+                <a href="<?= site_url('auth/logout'); ?>" class="navbar-right btn btn-danger">Logout</a>
+            <?php endif; ?>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
