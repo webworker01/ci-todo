@@ -10,8 +10,17 @@
  *
  * @author webworker@live.com
  */
-class todomodel extends CI_Model
+class todo_model extends CI_Model
 {
-    
+    /**
+     * Gets all records from the items table
+     * @return Object object containing all rows in the items table
+     */
+    public function getAll()
+    {
+        $query = $this->db->query('SELECT * FROM items');
+        
+        return $query->result();
+    }
     
 }

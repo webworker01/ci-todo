@@ -19,7 +19,9 @@ class todo extends My_Controller
      */
     public function index()
     {
-        $this->load->view('todo_list');
+        $this->load->model('todo_model');
+        $data['list'] = $this->todo_model->getAll();
+        $this->load->view('todo_list', $data);
     }
     
     /**
