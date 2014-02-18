@@ -12,14 +12,14 @@
  * @author webworker@live.com
  * 
  */
-class todo extends CI_Controller
+class todo extends My_Controller
 {
     /**
      * Default action displays the todo list to the user
      */
     public function index()
     {
-        echo 'Many things to do';
+        $this->load->view('todo_list');
     }
     
     /**
