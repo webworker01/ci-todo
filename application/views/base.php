@@ -17,6 +17,7 @@
                 padding-bottom: 20px;
             }
         </style>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="<?= base_url(); ?>css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="<?= base_url(); ?>css/main.css">
 
@@ -53,7 +54,9 @@
                     <button type="submit" class="btn btn-success">Sign in</button>
                 </form>
             <?php else: ?>
-                <a href="<?= site_url('auth/logout'); ?>" class="navbar-right btn btn-danger">Logout</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?= site_url('auth/logout'); ?>" class="navbar-right btn btn-danger">Logout</a></li>
+                </ul>
             <?php endif; ?>
         </div><!--/.navbar-collapse -->
       </div>
@@ -64,7 +67,7 @@
       <hr>
 
       <footer>
-        <p>&copy; <?= safe_mailto('webworker@live.com'); ?>&mdash;<?= date('Y'); ?></p>
+        <p>&copy; <?= safe_mailto('webworker@live.com'); ?> &mdash; <?= date('Y'); ?></p>
       </footer>
     </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="<?= base_url(); ?>js/vendor/jquery-1.10.1.min.js"><\/script>')</script>

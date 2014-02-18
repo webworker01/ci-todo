@@ -7,9 +7,9 @@
  */
 
 /**
- * Description of Owen_Controller
+ * Description of My_Controller
  *
- * @author Owen
+ * @author webworker@live.com
  */
 class My_Controller extends CI_Controller 
 {
